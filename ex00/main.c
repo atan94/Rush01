@@ -10,16 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char c);
-void	ft_putstr(char *str);
-void	ft_puterror(void);
+int	valid_input(int argc, char **argv);
+void	print_error(void);
+int	solve(int pos);
+void	print_solution(void);
 
-int	main(int argc, char *argv[])
+int	main(int argc, char **argv)
 {
-	if (argc != 2)
+	int	result;
+
+	result = valid_input(argc, argv);
+	if (result)
 	{
-		ft_puterror();
-		return (1);
+		print_error();
+		return (0);
 	}
+	if (solve(0))
+		print_solution();
+	else
+		print_error();
 	return (0);
 }
