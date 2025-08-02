@@ -1,4 +1,16 @@
-int	setup_game(int *vals, int count);
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validate.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/02 18:09:07 by amtan             #+#    #+#             */
+/*   Updated: 2025/08/02 18:09:12 by amtan            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int			setup_game(int *vals, int count);
 
 static int	valid_args(int argc, char **argv, int *vals, int *count)
 {

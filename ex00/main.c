@@ -6,13 +6,13 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 11:46:18 by amtan             #+#    #+#             */
-/*   Updated: 2025/08/02 12:07:50 by amtan            ###   ########.fr       */
+/*   Updated: 2025/08/02 18:08:56 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	valid_input(int argc, char **argv);
+int		valid_input(int argc, char **argv);
 void	print_error(void);
-int	solve(int pos);
+int		solve(int pos);
 void	print_solution(void);
 
 int	main(int argc, char **argv)
