@@ -248,7 +248,7 @@ static int	valid_args(int argc, char **argv, int *vals, int *count)
 	return (0);
 }
 
-static void	init_clues(int *vals)
+static int	init_clues(int *vals)
 {
 	int	i;
 
@@ -257,10 +257,17 @@ static void	init_clues(int *vals)
 	{
 		g_top[i] = vals[i];
 		g_bottom[i] = vals[g_n + i];
-		g_left_clue[i] = vals[2 * g_n + i];
-		g_right_clue[i] = vals[3 * g_n + i];
+		g_left[i] = vals[2 * g_n + i];
+		g_right[i] = vals[3 * g_n + i];
+		if (g_top[i] > g_n || g_bottom[i] > g_n || g_left[i] > g_n
+			|| g_right[i] > g_n)
+			return (-1);
+		else if ((g_top[i] + g_bottom[i] < 3 || g_left[i] + g_right[i] < 3)
+			&& g_n > 1)
+			return (-1);
 		i++;
 	}
+	return (0);
 }
 
 static void	init_grid(void)
@@ -288,12 +295,13 @@ static void	init_flags(void)
 	}
 }
 
-static int	setup_game(int *vals, int count)
+int	setup_game(int *vals, int count)
 {
 	g_n = count / 4;
 	if (g_n < 1)
 		return (-1);
-	init_clues(vals);
+	if (init_clues(vals))
+		return (-1);
 	init_grid();
 	init_flags();
 	return (0);
@@ -301,8 +309,8 @@ static int	setup_game(int *vals, int count)
 
 static int	valid_input(int argc, char **argv)
 {
-	int	vals[4 * MAX_N];
-	int	count;
+	int	vals[4 * MAX_N]; // array to hold all the values of the clues
+	int	count; // to count how many integers (digits) were provided as input
 
 	count = 0;
 	if (valid_args(argc, argv, vals, &count) != 0)
@@ -316,14 +324,14 @@ int	main(int argc, char **argv)
 {
 	int	result;
 
-	result = valid_input(argc, argv);
-	if (result)
+	result = valid_input(argc, argv); // returns 0 if input is valid; and -1 if input is invalid
+	if (result) // if input is invalid
 	{
 		print_error();
 		return (0);
 	}
-	if (solve(0))
-		print_solution();
+	if (solve(0)) // a recursive function; returns 1 to mean that a solution was successfully found; the input 0 means: start solving from position 0 (top left of the grid)
+		print_solution(); // print the solution if solve() successfully found a solution)
 	else
 		print_error();
 	return (0);
