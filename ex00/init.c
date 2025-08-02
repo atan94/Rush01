@@ -6,11 +6,11 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 18:08:36 by amtan             #+#    #+#             */
-/*   Updated: 2025/08/02 18:08:37 by amtan            ###   ########.fr       */
+/*   Updated: 2025/08/02 18:13:59 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static void	init_clues(int *vals)
+static int	init_clues(int *vals)
 {
 	int	i;
 
@@ -29,6 +29,7 @@ static void	init_clues(int *vals)
 			return (-1);
 		i++;
 	}
+	return (0);
 }
 
 static void	init_grid(void)
@@ -61,7 +62,8 @@ int	setup_game(int *vals, int count)
 	g_n = count / 4;
 	if (g_n < 1)
 		return (-1);
-	init_clues(vals);
+	if (init_clues(vals))
+		return (-1);
 	init_grid();
 	init_flags();
 	return (0);
