@@ -1,16 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate.c                                         :+:      :+:    :+:   */
+/*   valid_setup.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 18:09:07 by amtan             #+#    #+#             */
-/*   Updated: 2025/08/02 18:09:12 by amtan            ###   ########.fr       */
+/*   Updated: 2025/08/03 20:00:47 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int			setup_game(int *vals, int count);
+#define MAX_N 9
+
+extern int *const g_n;
+
+int			init_clues(int *vals);
+void		init_grid(void);
+void		init_flags(void);
 
 static int	valid_args(int argc, char **argv, int *vals, int *count)
 {
@@ -36,6 +42,18 @@ static int	valid_args(int argc, char **argv, int *vals, int *count)
 	}
 	if ((*count) % 4)
 		return (-1);
+	return (0);
+}
+
+static int	setup_game(int *vals, int count)
+{
+	*g_n = count / 4;
+	if (*g_n < 1)
+		return (-1);
+	if (init_clues(vals))
+		return (-1);
+	init_grid();
+	init_flags();
 	return (0);
 }
 
