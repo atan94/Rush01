@@ -6,11 +6,9 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 17:46:17 by amtan             #+#    #+#             */
-/*   Updated: 2025/08/03 21:11:19 by amtan            ###   ########.fr       */
+/*   Updated: 2025/08/03 23:07:52 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#define MAX_N 9
 
 extern int *const	g_n;
 extern int *const	g_grid;

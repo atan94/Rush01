@@ -6,11 +6,9 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 17:43:51 by amtan             #+#    #+#             */
-/*   Updated: 2025/08/03 21:11:05 by amtan            ###   ########.fr       */
+/*   Updated: 2025/08/03 23:05:58 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#define MAX_N 9
 
 extern int *const	g_n;
 extern int *const	g_top_clues;
