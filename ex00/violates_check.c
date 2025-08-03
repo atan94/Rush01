@@ -6,28 +6,33 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 17:43:51 by amtan             #+#    #+#             */
-/*   Updated: 2025/08/03 20:00:40 by amtan            ###   ########.fr       */
+/*   Updated: 2025/08/03 21:11:05 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define MAX_N 9
 
-extern int *const g_n;
-extern int *const g_top_clues[MAX_N];
-extern int *const g_btm_clues[MAX_N];
-extern int *const g_left_clues[MAX_N];
-extern int *const g_right_clues[MAX_N];
+extern int *const	g_n;
+extern int *const	g_top_clues;
+extern int *const	g_btm_clues;
+extern int *const	g_left_clues;
+extern int *const	g_right_clues;
+
+int			count_vis_row(int row);
+int			count_vis_row_rev(int row);
+int			count_vis_col(int col);
+int			count_vis_col_rev(int col);
 
 static int	check_row(int row)
 {
-	return (count_vis_row(row) == *g_left_clues[row]
-		&& count_vis_row_rev(row) == *g_right_clues[row]);
+	return (count_vis_row(row) == g_left_clues[row]
+		&& count_vis_row_rev(row) == g_right_clues[row]);
 }
 
 static int	check_col(int col)
 {
-	return (count_vis_col(col) == *g_top_clues[col]
-		&& count_vis_col_rev(col) == *g_btm_clues[col]);
+	return (count_vis_col(col) == g_top_clues[col]
+		&& count_vis_col_rev(col) == g_btm_clues[col]);
 }
 
 int	violates(int pos)

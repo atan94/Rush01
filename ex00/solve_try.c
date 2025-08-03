@@ -6,11 +6,11 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 16:18:02 by amtan             #+#    #+#             */
-/*   Updated: 2025/08/03 20:00:48 by amtan            ###   ########.fr       */
+/*   Updated: 2025/08/03 21:14:28 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-extern int *const g_n;
+extern int *const	g_n;
 
 int			can_place(int pos, int v);
 void		place(int pos, int v);
@@ -34,7 +34,7 @@ static int	try_value(int pos, int v)
 
 int	solve(int pos)
 {
-	if (pos == *g_n * *g_n)
+	if (pos == (*g_n) * (*g_n))
 		return (1);
 	return (try_value(pos, 1));
 }

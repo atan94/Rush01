@@ -6,7 +6,7 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 17:26:30 by amtan             #+#    #+#             */
-/*   Updated: 2025/08/03 20:00:53 by amtan            ###   ########.fr       */
+/*   Updated: 2025/08/03 21:20:49 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 #define MAX_N 9
 
-extern int *const g_n;
-extern int *const g_grid[MAX_N * MAX_N];
+extern int *const	g_n;
+extern int *const	g_grid;
 
 void	print_error(void)
 {
@@ -34,12 +34,13 @@ void	print_solution(void)
 		col = 0;
 		while (col < *g_n)
 		{
-			digit = *g_grid[row * *g_n + col] + '0';
+			digit = g_grid[row * *g_n + col] + '0';
 			write(1, &digit, 1);
 			if (col < *g_n - 1)
 				write(1, " ", 1);
 			col++;
 		}
 		write(1, "\n", 1);
+		row++;
 	}
 }

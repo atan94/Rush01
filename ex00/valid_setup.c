@@ -6,13 +6,13 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 18:09:07 by amtan             #+#    #+#             */
-/*   Updated: 2025/08/03 20:00:47 by amtan            ###   ########.fr       */
+/*   Updated: 2025/08/03 21:11:07 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define MAX_N 9
 
-extern int *const g_n;
+extern int *const	g_n;
 
 int			init_clues(int *vals);
 void		init_grid(void);

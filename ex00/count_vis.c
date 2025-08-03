@@ -6,14 +6,14 @@
 /*   By: amtan <amtan@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 17:46:17 by amtan             #+#    #+#             */
-/*   Updated: 2025/08/03 20:01:01 by amtan            ###   ########.fr       */
+/*   Updated: 2025/08/03 21:11:19 by amtan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define MAX_N 9
 
-extern int *const g_n;
-extern int *const g_grid[MAX_N * MAX_N];
+extern int *const	g_n;
+extern int *const	g_grid;
 
 int	count_vis_row(int row)
 {
@@ -27,7 +27,7 @@ int	count_vis_row(int row)
 	idx = 0;
 	while (idx < *g_n)
 	{
-		value = *g_grid[row * *g_n + idx];
+		value = g_grid[row * *g_n + idx];
 		if (value > max)
 		{
 			max = value;
@@ -50,7 +50,7 @@ int	count_vis_row_rev(int row)
 	idx = *g_n - 1;
 	while (idx >= 0)
 	{
-		value = *g_grid[row * *g_n + idx];
+		value = g_grid[row * *g_n + idx];
 		if (value > max)
 		{
 			max = value;
@@ -73,7 +73,7 @@ int	count_vis_col(int col)
 	idx = 0;
 	while (idx < *g_n)
 	{
-		value = *g_grid[idx * *g_n + col];
+		value = g_grid[idx * *g_n + col];
 		if (value > max)
 		{
 			max = value;
@@ -96,7 +96,7 @@ int	count_vis_col_rev(int col)
 	idx = *g_n - 1;
 	while (idx >= 0)
 	{
-		value = *g_grid[idx * *g_n + col];
+		value = g_grid[idx * *g_n + col];
 		if (value > max)
 		{
 			max = value;
